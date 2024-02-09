@@ -1,0 +1,17 @@
+.selectedNavButton{
+    background-color:  #b92e34 !important;
+}
+
+.selectedNavIcon{
+    color: #ffffff;
+}
+
+.selectedNavText{
+    color: #ffffff;
+}
+
+.role{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
