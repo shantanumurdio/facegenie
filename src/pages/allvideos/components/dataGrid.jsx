@@ -58,7 +58,6 @@ const rows = [
     video: "Inprocess",
     report: "Download",
   },
-  // Add more rows as needed
 ];
 
 export default function DataGridDemo({ handlePlayVideo }) {
@@ -105,6 +104,8 @@ export default function DataGridDemo({ handlePlayVideo }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          width: "100vw",
+          height: "100vh",
         }}
       >
         <Box
@@ -113,63 +114,86 @@ export default function DataGridDemo({ handlePlayVideo }) {
             p: 2,
             outline: "none",
             width: "80%",
-            maxWidth: "80vw", 
-            height:"80%",
-            height:"80vh",
+            maxWidth: "80vw",
+            height: "80%",
+            maxheight: "80vh",
+            display: "flex",
           }}
         >
-          <p id="play-video-modal-description">Video: {selectedVideo}</p>
-          {/* Embed video using iframe */}
+          <p id="play-video-modal-description"></p>
           <iframe
             width="100%"
-            height="315"
+            height="100%"
             src={selectedVideo}
             title="Embedded Video"
             allowFullScreen
           ></iframe>
 
-          <Paper elevation={6} square>
-            <Grid
-              container
-              spacing={2}
-              justifyContent="center"
-              marginTop="10px"
-            >
-              <Grid item xs={12}>
-                <Box
+          <Grid
+            container
+            spacing={2}
+            justifyContent="center"
+            marginTop="10px"
+            width="280px"
+          >
+            <Grid item xs={12}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  p: 2,
+                }}
+              >
+                <Typography sx={{fontWeight:"bold"}}>Total Saplings</Typography>
+                <TextField size="small" variant="outlined" />
+                <Typography sx={{fontWeight:"bold"}}>Laps</Typography>
+                <TextField size="small" variant="outlined" />
+                <Button
                   sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    p: 2,
+                    backgroundColor: "#fa2520",
+                    mt: "10px",
+                    color: "white",
+                    "&:hover": {
+                      backgroundColor: "#ff6347",
+                    },
                   }}
                 >
-                  <Typography>Total Saplings</Typography>
-                  <TextField size="small" variant="outlined" />
-                  <Typography>Laps</Typography>
-                  <TextField size="small" variant="outlined" />
-                  <Button sx={{backgroundColor:"#fa2520"}}>Download Report</Button>
-                </Box>
-              </Grid>
-
-              <Grid item xs={12}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    p: 2,
-                  }}
-                >
-                  <Typography>Male Saplings</Typography>
-                  <TextField size="small" variant="outlined" sx={{marginLeft:"28px"}}  />
-                  <Typography sx={{marginRight:"30px"}}>Female Saplings</Typography>
-                  <TextField size="small" variant="outlined" sx={{marginLeft:"-100px"}} />
-                  <Button sx={{backgroundColor:"#fa2520"}}>Download Report</Button>
-                </Box>
-              </Grid>
+                  Download Report
+                </Button>
+              </Box>
             </Grid>
-          </Paper>
+
+            <Grid item xs={12}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  p: 2,
+                }}
+              >
+                <Typography sx={{fontWeight:"bold"}}>Male Saplings</Typography>
+                <TextField size="small" variant="outlined" width="100px" />
+                <Typography sx={{fontWeight:"bold"}}>Female Saplings</Typography>
+                <TextField size="small" variant="outlined" />
+                <Button
+                  sx={{
+                    backgroundColor: "#fa2520",
+                    mt: "10px",
+                    color: "white",
+                    "&:hover": {
+                      backgroundColor: "#ff6347",
+                    },
+                  }}
+                >
+                  Download Report
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
         </Box>
       </Modal>
     </Box>

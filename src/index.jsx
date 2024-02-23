@@ -6,6 +6,7 @@ import { HashRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 import store from './store'
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <HashRouter>
@@ -19,3 +20,9 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
+
+// create a table page for users :- role ka drop down (view edit delete) report ke jgha icon view edit delete
+
+// create a table page for role :- 
+// firestore database 
+// /

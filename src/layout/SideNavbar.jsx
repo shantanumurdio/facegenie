@@ -11,6 +11,7 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import { appStateActions } from "../store/appState";
 import FaceGenie from '../assets/FaceGenieLogo.webp'
+import Resoluteai from '../assets/resoluteai_logo.png'
 
 
 const drawerWidth = 260;
@@ -75,6 +76,15 @@ const SideNavbar = () => {
                 <MainListItems />
                 <Divider sx={{ my: 2 }} />
             </List>
+            <Typography
+                    component="h1"
+                    variant="h6"
+                    color="inherit"
+                    noWrap
+                    sx={{ flexGrow: 1, mt:"100px", ml:"25px" }}
+                >
+                    <img src={Resoluteai} alt="Company Logo" style={{ width: '200px', margin:"auto" }} />
+                </Typography>
         </DrawerStyle >
     )
 }

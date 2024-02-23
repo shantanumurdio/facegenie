@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import { Box, Typography } from '@mui/material';
+import { Box, Paper, Typography } from '@mui/material';
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -25,6 +25,7 @@ const InputFileUpload = () => {
 
   return (
     <Box >
+      
       <Typography sx={{ p: "20px", textAlign: "center",fontWeight:"bold", fontSize: "20px" }}>
         Upload Input Videos
       </Typography>

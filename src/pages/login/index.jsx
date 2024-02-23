@@ -8,24 +8,50 @@ import { useNavigate } from "react-router-dom";
 import LoadingButton from "@mui/lab/LoadingButton";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-
+import { useEffect } from "react";
 import FacegenieLogo from "../../assets/FaceGenieLogo.webp";
 import ResoluteaiLogo from "../../assets/resoluteai_logo.png";
 import { InputField } from "../../components/Fields";
 import { Typography } from "@mui/material";
+import { userSignin } from "../../services/ApiServices";
+import * as ToastService from '../../services/ToastService';
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase/firebase"; 
 
 const Login = () => {
   const navigate = useNavigate();
+  
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [loginError, setLoginError] = React.useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, user => {
+      if (user) {
+        navigate('/dashboard');
+      } else {
+        navigate('/')
+      }
+    });
+    return () => unsubscribe();
+  }, []); 
 
   const handleSubmit = (values) => {
     setIsSubmitting(true);
-    navigate("/dashboard");
+    userSignin(values).then(res => {
+      if (res.status) {
+        sessionStorage.setItem('user', JSON.stringify(res.data));
+        navigate('/dashboard');
+      } else {
+        setLoginError(res.message); // Set login error message
+        setIsSubmitting(false);
+        ToastService.errorToast(res.message); // Optionally display toast message
+      }
+    });
   };
 
   const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email address").required("Email is required"),
-    password: Yup.string().required("Password is required"),
+    password: Yup.string().min(6).required("Password is required"),
   });
 
   const formik = useFormik({
@@ -54,7 +80,7 @@ const Login = () => {
           color: "#ffffff",
         }}
       >
-        <Typography variant="h2" sx={{fontSize:"65px" , fontWeight:"bold"}}>Plant Sapling Counting</Typography>
+        <Typography variant="h2" sx={{ fontSize: "65px", fontWeight: "bold" }}>Plant Sapling Counting</Typography>
       </Grid>
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <Box
@@ -108,6 +134,11 @@ const Login = () => {
               label="Password"
               formik={formik}
             />
+            {loginError && (
+              <Typography sx={{ color: "red", mt: 1 }}>
+                {loginError}
+              </Typography>
+            )}
             {isSubmitting ? (
               <LoadingButton
                 fullWidth

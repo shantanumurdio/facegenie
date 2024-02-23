@@ -10,6 +10,8 @@ import Settings from "../pages/settings"
 import Logout from "../pages/logout"
 // import FirstPage from "../pages/firstPage";
 import Login from "../pages/login"
+import User from "../pages/user";
+import Role from "../pages/role";
 
 const Routers = () => {
   return (
@@ -19,6 +21,8 @@ const Routers = () => {
       <Route path="/uploadvideos" element={<UploadVideos/>} /> 
       <Route path="/allvideos" element={<Allvideos/>} /> 
       <Route path="/analysis" element={<Analysis/>} /> 
+      <Route path="/user" element={<User/>} /> 
+      <Route path="/role" element={<Role/>} /> 
       <Route path="/settings" element={<Settings/>} /> 
       <Route path="/logout" element={<Logout/>} /> 
     </Routes>

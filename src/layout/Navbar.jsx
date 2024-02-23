@@ -43,6 +43,8 @@ const Navbar = () => {
     "/uploadvideos": "Upload Videos",
     "/allvideos": "All Videos",
     "/analysis": "View Analysis",
+    "/user": "User",
+    "/role": "Role",
     "/settings": "Settings",
     "/logout": "Logout",
   };

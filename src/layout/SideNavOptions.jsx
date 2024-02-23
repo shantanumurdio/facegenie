@@ -8,7 +8,10 @@ import UploadVideos from '@mui/icons-material/PlayCircleOutlineSharp';
 import AllVideos from '@mui/icons-material/AutoGraph';
 import InsertChart from '@mui/icons-material/InsertChart';
 import Settings from '@mui/icons-material/Settings';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import Logout from '@mui/icons-material/Logout';
+
 
 
 import './styles.css'
@@ -23,6 +26,8 @@ export const MainListItems = () => {
         { path: '/uploadvideos', pageName: 'Upload Videos', icon: UploadVideos },
         { path: '/allvideos', pageName: 'All Videos', icon: AllVideos },
         { path: '/analysis', pageName: 'View Analysis', icon: InsertChart },
+        { path: '/user', pageName: 'User', icon: AccountCircleIcon },
+        { path: '/role', pageName: 'Role', icon: FormatListBulletedIcon },
         { path: '/settings', pageName: 'Settings', icon: Settings },
         { path: '/logout', pageName: 'Logout', icon: Logout },
     ]

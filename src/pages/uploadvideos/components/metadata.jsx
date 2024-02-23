@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
-import { Typography } from '@mui/material';
+import { Paper, Typography } from '@mui/material';
 
 export default function TextFieldHiddenLabel() {
   return (

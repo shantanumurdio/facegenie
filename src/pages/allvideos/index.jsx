@@ -18,8 +18,13 @@ const index = () => {
         Analyzed Videos
       </Typography>
       <Grid container component="main" sx={{ justifyContent: "space-around" }}>
-        <Grid item xs={12} sm={6} md={5} sx={{ textAlign: "left" }}>
+        <Grid item xs={12} sm={6} md={5} sx={{display:"flex" ,textAlign: "left" }}>
           <DatesComp  />{" "}
+          <Button sx={{ml:"25px", p:"15px",fontWeight: "bold",backgroundColor: "#fa2520",color: "#fff","&:hover": {
+                backgroundColor: "#d31414",
+              },}}>
+            Filter
+          </Button>
         </Grid>
         <Grid item xs={12} sm={6} md={5} sx={{ textAlign: "right" }}>
           <Button
@@ -40,7 +45,7 @@ const index = () => {
       </Grid>
 
       <Grid container component="main" sx={{ justifyContent: "space-around" }}>
-        <Grid sx={{marginTop:"100px"}}>
+        <Grid sx={{marginTop:"30px"}}>
           <DataGrid/>
         </Grid>
       </Grid>
